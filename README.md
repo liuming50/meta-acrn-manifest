@@ -31,7 +31,7 @@ $ repo sync
 ```
 
 
-# Build the source (take sos-image-weston and the bundled uos-image-weston as a example)
+# Build the source (Default SOS/UOS: sos-image-weston, uos-image-weston)
 
 $ cd ~/acrn-workspace
 
@@ -57,3 +57,10 @@ $ sudo dd if=~/acrn-workspace/build/tmp/deploy/images/apl-nuc/sos-image-weston-a
 ```
   $ systemctl start acrn-guest@uos-image-weston.service
 ```
+
+
+# Known issues
+
+Currently poky does not support adding customized title to systemd-boot bootloader, a fix had been sent to OE mail list, but it's still pending, so you need manually apply this patch to poky layer:
+
+[0001-wic-bootimg-efi-add-a-title-source-parameter.patch](https://patchwork.openembedded.org/patch/155888/)
