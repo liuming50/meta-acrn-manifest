@@ -33,9 +33,9 @@ $ repo sync
 
 # Build the source (Default SOS/UOS: sos-image-weston, uos-image-weston)
 
-$ cd ~/acrn-workspace
 
 ```
+$ cd ~/acrn-workspace
 $ . acrn-init-build-env
 $ MACHINE=apl-nuc bitbake sos-image-weston
 ```
