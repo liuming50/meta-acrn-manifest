@@ -15,6 +15,7 @@
 
   <project remote="acrn" name="meta-acrn" path="sources/meta-acrn">
     <linkfile dest="acrn-init-build-env" src="acrn-init-build-env"/>
+    <linkfile dest="acrn-init-celadon-host-tools" src="acrn-init-celadon-host-tools"/>
     <linkfile dest="README.md" src="README.md"/>
   </project>
 </manifest>
