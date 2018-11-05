@@ -14,6 +14,7 @@
   <project remote="bitbake-completion" name="bitbake-bash-completion" path="sources/bitbake-bash-completion"/>
 
   <project remote="acrn" name="meta-acrn" path="sources/meta-acrn">
+    <linkfile dest="acrn-init-build-env" src="acrn-init-build-env"/>
     <linkfile dest="README.md" src="README.md"/>
   </project>
 
