@@ -31,14 +31,16 @@ $ repo sync
 ```
 
 
-# Build the source (Default SOS/UOS: sos-image-weston, uos-image-weston)
+# Build the source in a docker image (Default SOS/UOS: sos-image-weston, uos-image-weston, uos-image-celadon)
 
 
 ```
 $ cd ~/acrn-workspace
-$ . acrn-init-build-env
+$ ./setup -a /path/to/your/celadon
 $ MACHINE=apl-nuc bitbake sos-image-weston
 ```
+
+in which, /path/to/your/celadon is where your Celadon Android source locates at, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
 
 
 # Deploy the image to a USB disk (assume the USB disk is /dev/sdb on your host machine)
@@ -52,10 +54,11 @@ $ sudo dd if=~/acrn-workspace/build/tmp/deploy/images/apl-nuc/sos-image-weston-a
 
 - Insert the USB disk to your APL-NUC device, choose USB disk as the UEFI boot device. (F10)
 - You will be able to see "EFI ACRN Loader" entry on the boot menu, click it to choose boot from ACRN hypervisor.
-- After system boots up, open a console, and start the default UOS (uos-image-weston):
+- After system boots up, open a console, and start the default UOS (uos-image-weston, uos-image-celadon):
 
 ```
   $ systemctl start acrn-guest@uos-image-weston.service
+  $ systemctl start acrn-guest@uos-image-celadon.service
 ```
 
 
