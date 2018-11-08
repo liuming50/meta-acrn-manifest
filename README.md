@@ -35,11 +35,13 @@ $ repo sync
 
 ```
 $ cd ~/acrn-workspace
-$ ./setup -a /path/to/your/celadon
+$ ./setup -a /path/to/your/celadon-source
 $ MACHINE=apl-nuc bitbake sos-image-weston
 ```
 
-in which, /path/to/your/celadon is where your Celadon Android source locates at, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
+in which, /path/to/your/celadon-source is where your Celadon Android source locates at, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
+
+Notice: there is a bug in Poky WIC, when run 'wic rm' in a Docker container with aufs storage driver, please refer to "Known issues" section bout the bug. So please try build natively on your host if you run into that issue within Docker build.
 
 
 # Build the source directly on host (Only verified on Ubuntu-16.04 LTS)
@@ -96,6 +98,6 @@ Currently poky does not support adding customized title to systemd-boot bootload
 
 [0001-wic-bootimg-efi-add-a-title-source-parameter.patch](https://patchwork.openembedded.org/patch/155888/)
 
-Poky WIC has a problem running 'wic rm' which is needed to generate a ACRN bootable image, this issue's being tracked Yocto bugzilla:
+Poky WIC has a problem running 'wic rm' in a Docker container with aufs storage driver, which is needed to generate a ACRN bootable image, this issue's being tracked by Yocto bugzilla:
 
 [Yocto bug #12988](https://bugzilla.yoctoproject.org/show_bug.cgi?id=12988)
