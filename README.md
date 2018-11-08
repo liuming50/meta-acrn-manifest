@@ -42,9 +42,11 @@ $ MACHINE=apl-nuc bitbake sos-image-weston
 in which, /path/to/your/celadon is where your Celadon Android source locates at, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
 
 
-# Build the source directly on host (Only verfied on Ubuntu-16.06 LTS)
+# Build the source directly on host (Only verified on Ubuntu-16.04 LTS)
 
-To be able to build Celadon Android, firstly of all, you need download Celadon Android source and install the required packages, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
+To be able to build Celadon Android, firstly of all, you need download Celadon Android source and install the required packages, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source).
+
+Set up the environment:
 
 ```
 $ cd ~/acrn-workspace
@@ -52,7 +54,7 @@ $ . acrn-init-celadon-host-tools
 $ . acrn-init-build-env
 ```
 
-then add the following line to conf/local.conf:
+Add the following line to conf/local.conf:
 ```
 EXTERNALSRC_pn-uos-image-celadon = "/path/to/your/celadon-source"
 ```
