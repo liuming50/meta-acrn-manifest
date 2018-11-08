@@ -42,6 +42,29 @@ $ MACHINE=apl-nuc bitbake sos-image-weston
 in which, /path/to/your/celadon is where your Celadon Android source locates at, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
 
 
+# Build the source directly on host (Only verfied on Ubuntu-16.06 LTS)
+
+To be able to build Celadon Android, firstly of all, you need download Celadon Android source and install the required packages, please refer to [Build Celadon from source](https://01.org/projectceladon/documentation/getting_started/build-source)
+
+```
+$ cd ~/acrn-workspace
+$ . acrn-init-celadon-host-tools
+$ . acrn-init-build-env
+```
+
+then add the following line to conf/local.conf:
+```
+EXTERNALSRC_pn-uos-image-celadon = "/path/to/your/celadon-source"
+```
+
+in which, /path/to/your/celadon-source is where your Celadon Android source locates at.
+
+Now you can run bitbake to build the SOS/UOS images:
+```
+$ MACHINE=apl-nuc bitbake sos-image-weston
+```
+
+
 # Deploy the image to a USB disk (assume the USB disk is /dev/sdb on your host machine)
 
 ```
@@ -70,3 +93,7 @@ $ sudo dd if=~/acrn-workspace/build/tmp/deploy/images/apl-nuc/sos-image-weston-a
 Currently poky does not support adding customized title to systemd-boot bootloader, a fix had been sent to OE mail list, but it's still pending, so you need manually apply this patch to poky layer:
 
 [0001-wic-bootimg-efi-add-a-title-source-parameter.patch](https://patchwork.openembedded.org/patch/155888/)
+
+Poky WIC has a problem running 'wic rm' which is needed to generate a ACRN bootable image, this issue's being tracked Yocto bugzilla:
+
+[Yocto bug #12988](https://bugzilla.yoctoproject.org/show_bug.cgi?id=12988)
