@@ -94,10 +94,6 @@ $ sudo dd if=~/acrn-workspace/build/tmp/deploy/images/apl-nuc/sos-image-weston-a
 
 # Known issues
 
-Currently poky does not support adding customized title to systemd-boot bootloader, a fix had been sent to OE mail list, but it's still pending, so you need manually apply this patch to poky layer:
-
-[0001-wic-bootimg-efi-add-a-title-source-parameter.patch](https://patchwork.openembedded.org/patch/155888/)
-
 Poky WIC has a problem running 'wic rm' in a Docker container with aufs storage driver, which is needed to generate a ACRN bootable image, this issue's being tracked by Yocto bugzilla:
 
 [Yocto bug #12988](https://bugzilla.yoctoproject.org/show_bug.cgi?id=12988)
