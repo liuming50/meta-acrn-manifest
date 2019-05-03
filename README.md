@@ -91,6 +91,11 @@ $ sudo dd if=~/acrn-workspace/build/tmp/deploy/images/apl-nuc/sos-image-weston-a
   $ systemctl start acrn-guest@uos-image-celadon.service
 ```
 
+- Or start the Zephyr UOS:
+```
+  $ systemctl start acrn-guest@uos-image-zephyr.service
+```
+
 
 # Known issues
 
